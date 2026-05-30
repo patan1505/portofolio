@@ -9,7 +9,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $profile = Profile::first();
+        $profile = Profile::first() ?? new Profile();
         $latestProjects = Project::orderBy('urutan')->take(3)->get();
         
         return view('home', compact('profile', 'latestProjects'));
