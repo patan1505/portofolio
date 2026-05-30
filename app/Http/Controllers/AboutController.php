@@ -11,7 +11,7 @@ class AboutController extends Controller
 {
     public function index()
     {
-        $profile = Profile::first();
+        $profile = Profile::first() ?? new Profile();
         $skills = Skill::orderBy('urutan')->get();
         $achievements = Achievement::orderBy('tahun', 'desc')->get();
         $galleries = Gallery::orderBy('urutan')->get();
